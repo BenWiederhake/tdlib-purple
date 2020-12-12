@@ -1,3 +1,4 @@
+#include <algorithm>
 #include "libpurple-mock.h"
 #include "purple-events.h"
 #include <purple.h>

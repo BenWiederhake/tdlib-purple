@@ -61,8 +61,6 @@ object_ptr<chat> makeChat(std::int64_t id_,
                           std::int64_t last_read_inbox_message_id_,
                           std::int64_t last_read_outbox_message_id_);
 
-object_ptr<updateChatChatList> makeUpdateChatListMain(int64_t chatId);
-
 object_ptr<message> makeMessage(std::int64_t id_, std::int32_t sender_user_id_, std::int64_t chat_id_,
                                 bool is_outgoing_, std::int32_t date_, object_ptr<MessageContent> &&content_);
 

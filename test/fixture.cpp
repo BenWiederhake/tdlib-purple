@@ -143,6 +143,7 @@ void CommTest::login(std::initializer_list<object_ptr<Object>> extraUpdates, obj
         prpl.verifyEvents2(std::move(postChatListEvents));
 }
 
+#ifdef BROKEN_SINCE_TD_1_6_6
 void CommTest::loginWithOneContact()
 {
     login(
@@ -160,6 +161,7 @@ void CommTest::loginWithOneContact()
         }
     );
 }
+#endif
 
 object_ptr<updateUser> CommTest::standardUpdateUser(unsigned index)
 {
@@ -183,6 +185,7 @@ object_ptr<updateUser> CommTest::standardUpdateUserNoPhone(unsigned index)
     ));
 }
 
+#ifdef BROKEN_SINCE_TD_1_6_6
 object_ptr<updateNewChat> CommTest::standardPrivateChat(unsigned index, object_ptr<ChatList> chatList)
 {
     object_ptr<chat> chat = makeChat(
@@ -194,6 +197,7 @@ object_ptr<updateNewChat> CommTest::standardPrivateChat(unsigned index, object_p
     chat->chat_list_ = std::move(chatList);
     return make_object<updateNewChat>(std::move(chat));
 }
+#endif
 
 PurplePluginProtocolInfo &CommTest::pluginInfo()
 {

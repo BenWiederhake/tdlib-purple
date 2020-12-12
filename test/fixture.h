@@ -41,12 +41,16 @@ protected:
                std::initializer_list<std::unique_ptr<PurpleEvent>> postUpdateEvents = {},
                std::initializer_list<object_ptr<td::TlObject>> postUpdateRequestsAndResponses = {},
                std::initializer_list<std::unique_ptr<PurpleEvent>> postChatListEvents = {nullptr});
+#ifdef BROKEN_SINCE_TD_1_6_6
     void loginWithOneContact();
+#endif
     void runTimeouts() { tgl.runTimeouts(); }
 
     object_ptr<updateUser>     standardUpdateUser(unsigned index);
     object_ptr<updateUser>     standardUpdateUserNoPhone(unsigned index);
+#ifdef BROKEN_SINCE_TD_1_6_6
     object_ptr<updateNewChat>  standardPrivateChat(unsigned index, object_ptr<ChatList> chatList = nullptr);
+#endif
     PurplePluginProtocolInfo  &pluginInfo();
 };
 

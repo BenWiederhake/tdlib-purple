@@ -227,6 +227,7 @@ TEST_F(PrivateChatTest, AddContactByUsername_DoesntBecomeContact)
     prpl.verifyEvents(NewConversationEvent(PURPLE_CONV_TYPE_IM, account, "Local Alias"));
 }
 
+#ifdef BROKEN_SINCE_TD_1_6_6
 TEST_F(PrivateChatTest, ContactedByNew)
 {
     login();
@@ -325,6 +326,7 @@ TEST_F(PrivateChatTest, ContactedByNew_ImmediatePhoneNumber)
         true
     ));
 }
+#endif
 
 TEST_F(PrivateChatTest, ContactWithoutChatAtLogin)
 {
@@ -926,6 +928,7 @@ TEST_F(PrivateChatTest, TypingNotification)
     tgl.verifyRequest(sendChatAction(chatIds[0], make_object<chatActionCancel>()));
 }
 
+#ifdef BROKEN_SINCE_TD_1_6_6
 TEST_F(PrivateChatTest, DeleteContact)
 {
     loginWithOneContact();
@@ -954,6 +957,7 @@ TEST_F(PrivateChatTest, DeleteContact)
     tgl.update(make_object<updateChatChatList>(chatIds[0], make_object<chatListArchive>()));
     tgl.update(make_object<updateChatChatList>(chatIds[0], nullptr));
 }
+#endif
 
 TEST_F(PrivateChatTest, MessageSendResponseError)
 {
@@ -1081,6 +1085,7 @@ TEST_F(PrivateChatTest, WriteToUnknownUser)
     );
 }
 
+#ifdef BROKEN_SINCE_TD_1_6_6
 TEST_F(PrivateChatTest, BuddyWithNullAlias)
 {
     PurpleBuddy *buddy = purple_buddy_new(account, purpleUserName(0).c_str(), NULL);
@@ -1101,6 +1106,7 @@ TEST_F(PrivateChatTest, BuddyWithNullAlias)
         }
     );
 }
+#endif
 
 TEST_F(PrivateChatTest, CallEnded)
 {

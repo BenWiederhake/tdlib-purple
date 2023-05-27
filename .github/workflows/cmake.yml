@@ -2,6 +2,11 @@ name: Build and test
 
 on: [push, pull_request, workflow_dispatch]
 
+permissions:
+  actions: read
+  contents: read
+  security-events: write
+
 # Don't mix these up!
 # runner.workspace = /home/runner/work/serenity
 # github.workspace = /home/runner/work/serenity/serenity

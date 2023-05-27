@@ -62,7 +62,7 @@ jobs:
 
     # === BASIC SETUP ===
 
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Dump config
       run: echo "install-local" ${{matrix.INSTALL_LOCAL_LOTTIE}} "cmakeflags" ${{matrix.CMAKE_FLAGS}} "end"
     - name: Purge interfering packages
@@ -89,7 +89,7 @@ jobs:
         LINTACCEL_IGNORE_MISSING: y
       run: ${{ github.workspace }}/po/lint_accelerators.py
     - name: tdlib cache
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       with:
         path: ${{ github.workspace }}/.ga_cache/td_destdir_${{env.TD_TAG}}_${{env.TD_MARK}}.tar*
         key: ${{ runner.os }}-td-${{env.TD_TAG}}-${{env.TD_MARK}}
@@ -106,7 +106,7 @@ jobs:
         # TODO: Add this here? ↑
         # -Dtgvoip_LIBRARIES='tgvoip;opus;webrtc_audio_processing' -Dtgvoip_INCLUDE_DIRS=/usr/include/libtgvoip/
     - name: Initialize CodeQL Static Analysis for C++
-      uses: github/codeql-action/init@v1
+      uses: github/codeql-action/init@v2
       with:
         languages: cpp
         config-file: ./.github/codeql/config.yml
@@ -130,4 +130,4 @@ jobs:
       working-directory: ${{ github.workspace }}/build
       run: DESTDIR=tdprpl_destdir ninja install
     - name: Perform post build CodeQL Analysis
-      uses: github/codeql-action/analyze@v1
+      uses: github/codeql-action/analyze@v2

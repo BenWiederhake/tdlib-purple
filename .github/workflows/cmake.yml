@@ -67,7 +67,9 @@ jobs:
       run: echo "install-local" ${{matrix.INSTALL_LOCAL_LOTTIE}} "cmakeflags" ${{matrix.CMAKE_FLAGS}} "end"
     - name: Purge interfering packages
       # Remove GCC 9 (installed by default)
-      run: sudo apt-get purge -y gcc-9 g++-9 libstdc++-9-dev
+      run: |
+        sudo apt update
+        sudo apt-get purge -y gcc-9 g++-9 libstdc++-9-dev
     - name: Install dependencies
       # These packages are already part of the ubuntu-20.04 image:
       # cmake gcc-10 g++-10

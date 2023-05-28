@@ -62,7 +62,7 @@ static std::string messageTypeToString(const td::td_api::MessageContent &content
     C(messagePinMessage)
     C(messageScreenshotTaken)
     C(messageChatSetTheme)
-    C(messageChatSetTtl)
+    C(messageChatSetMessageAutoDeleteTime)
     C(messageCustomServiceAction)
     C(messageGameScore)
     C(messagePaymentSuccessful)

@@ -633,7 +633,7 @@ void showMessage(const td::td_api::chat &chat, IncomingMessage &fullMessage,
     TgMessageInfo &messageInfo = fullMessage.messageInfo;
     messageInfo.repliedMessage = std::move(fullMessage.repliedMessage);
 
-    if (message.ttl_ != 0) {
+    if (message.self_destruct_time_ != 0) {
         if (purple_account_get_bool(account.purpleAccount, AccountOptions::ShowSelfDestruct, AccountOptions::ShowSelfDestructDefault)) {
             // TRANSLATOR: In-chat warning message
             const char *text   = _("Received self-destructing message, displaying anyway");

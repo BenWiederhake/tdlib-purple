@@ -43,7 +43,7 @@ void startDocumentUpload(ChatId chatId, const std::string &filename, PurpleXfer 
                          TdTransceiver &transceiver, TdAccountData &account,
                          TdTransceiver::ResponseCb response)
 {
-    auto uploadRequest = td::td_api::make_object<td::td_api::uploadFile>();
+    auto uploadRequest = td::td_api::make_object<td::td_api::preliminaryUploadFile>();
     uploadRequest->file_ = td::td_api::make_object<td::td_api::inputFileLocal>(filename);
     uploadRequest->file_type_ = td::td_api::make_object<td::td_api::fileTypeDocument>();
     uploadRequest->priority_ = FILE_UPLOAD_PRIORITY;
@@ -62,7 +62,7 @@ void startDocumentUploadProgress(ChatId chatId, PurpleXfer *xfer, const td::td_a
 {
     if (purple_xfer_is_canceled(xfer)) {
         // Someone managed to cancel the upload REAL fast
-        auto cancelRequest = td::td_api::make_object<td::td_api::cancelUploadFile>(file.id_);
+        auto cancelRequest = td::td_api::make_object<td::td_api::cancelPreliminaryUploadFile>(file.id_);
         transceiver.sendQuery(std::move(cancelRequest), nullptr);
         purple_xfer_unref(xfer);
     } else {
@@ -93,7 +93,7 @@ static void updateDocumentUploadProgress(const td::td_api::file &file, PurpleXfe
                 purple_debug_misc(config::pluginId, "Started uploading %s\n", purple_xfer_get_local_filename(upload));
                 purple_xfer_start(upload, -1, NULL, 0);
             }
-            size_t bytesSent = std::max(0, file.remote_->uploaded_size_);
+            size_t bytesSent = std::max(0L, file.remote_->uploaded_size_);
             purple_xfer_set_bytes_sent(upload, std::min(fileSize, bytesSent));
             purple_xfer_update_progress(upload);
         } else if (file.local_ && (file.remote_->uploaded_size_ == file.local_->downloaded_size_)) {
@@ -340,7 +340,7 @@ static void updateDownloadProgress(const td::td_api::file &file, PurpleXfer *xfe
         return;
 
     unsigned fileSize       = getFileSize(file);
-    int32_t  downloadedSize = std::max(0, file.local_ ? file.local_->downloaded_size_ : 0);
+    td::td_api::int53 downloadedSize = std::max(0L, file.local_ ? file.local_->downloaded_size_ : 0);
 
     if (xfer) {
         purple_xfer_set_size(xfer, fileSize);

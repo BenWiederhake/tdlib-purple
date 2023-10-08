@@ -17,8 +17,10 @@ pushd build
       make install DESTDIR=destdir
     popd
   popd
-  cmake -DTd_DIR="$(realpath .)"/td/build/destdir/usr/local/lib/cmake/Td/ -DNoVoip=True ..
-  make -j "${JOBS}"
-  echo "Now calling sudo make install"
-  sudo make install
-popd
+  cmake -DTd_DIR="$(realpath .)"/td/build/destdir/usr/local/lib/cmake/Td/ \
+    -DNoVoip=True \
+    ..
+  popd
+make
+echo "Now calling sudo make install"
+sudo make install

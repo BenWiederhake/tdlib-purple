@@ -21,6 +21,6 @@ pushd build
     -DNoVoip=True \
     ..
   popd
-make
+make -j "${JOBS}"
 echo "Now calling sudo make install"
 sudo make install

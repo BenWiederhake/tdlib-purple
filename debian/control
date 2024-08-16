@@ -1,0 +1,38 @@
+Source: purple-telegram-tdlib
+Section: net
+Priority: optional
+Maintainer: Ben Wiederhake <BenWiederhake.GitHub@gmx.de>
+Rules-Requires-Root: no
+Build-Depends:
+ debhelper-compat (= 13),
+ cmake,
+ git,
+ pkg-config,
+ g++,
+ gettext,
+ libpurple-dev,
+ libwebp-dev,
+ libpng-dev,
+ libssl-dev,
+ zlib1g-dev,
+Standards-Version: 4.7.0
+Homepage: https://github.com/BenWiederhake/tdlib-purple
+Vcs-Browser: https://github.com/BenWiederhake/tdlib-purple
+Vcs-Git: https://github.com/BenWiederhake/tdlib-purple.git
+Bugs: https://github.com/BenWiederhake/tdlib-purple/issues
+
+Package: purple-telegram-tdlib-dev
+Architecture: any
+Depends:
+ ${shlibs:Depends},
+ ${misc:Depends},
+Enhances:
+ finch,
+ pidgin,
+ chatty,
+ spectrum2-backend-libpurple,
+ bitlbee-libpurple,
+Description: Telegram protocol plugin for libpurple based on the tdlib
+ Plugin for libpurple (Pidgin, Chatty) which lets you use and manage your Telegram account
+ like any other account in purple.
+ The tdlib is an official library for the Telegram.

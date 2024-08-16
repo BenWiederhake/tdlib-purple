@@ -1,0 +1,5 @@
+purple-telegram-tdlib (1.8.35) stable; urgency=medium
+
+  * Initial debianization.
+
+ -- Sergey Ponomarev <stokito@stokito-serv>  Wed, 25 Dec 2024 17:57:43 +0200

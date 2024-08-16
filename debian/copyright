@@ -1,0 +1,13 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Source: https://github.com/BenWiederhake/tdlib-purple
+
+Files: *
+Copyright: 2020 Arseniy Lartsev <arseniy.lartsev@cevt.se>
+           2024 Ben Wiederhake <BenWiederhake.GitHub@gmx.de>
+License: GPL-2+
+
+Files: rlottie/*
+Copyright: 2020 Arseniy Lartsev <arseniy.lartsev@cevt.se>
+           2024 Ben Wiederhake <BenWiederhake.GitHub@gmx.de>
+License: LGPL-v2.1
+    See ./rlottie/COPYING.rlottie

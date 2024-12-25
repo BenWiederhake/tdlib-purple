@@ -1,0 +1,21 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2020-07-06 03:30+0200\n"
+"PO-Revision-Date: 2020-07-06 01:31+0000\n"
+"Last-Translator: Sergey Ponomarev <stokito@gmail.com>, 2024\n"
+"Language-Team: Ukrainian (https://www.transifex.com/tdlib-purple-developers/teams/110016/uk/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: uk\n"
+
+#. (itstool) path: component/name
+#: tdlib-purple.metainfo.untranslated.xml:5
+msgid "Telegram plugin"
+msgstr "Плагін протоколу Telegram"
+
+#. (itstool) path: component/summary
+#: tdlib-purple.metainfo.untranslated.xml:6
+msgid "Telegram protocol plugin for libpurple using tdlib"
+msgstr "Плагін протоколу Telegram для бібліотеки libpurple через tdlib"
